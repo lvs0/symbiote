@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Symbiote — simulations interactives de l'ère symbiotique. Repenser l'ordinateur à partir du silicium, du courant et de la donnée." />
+  <title>Symbiote — Ère Simbiotique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="logo">
+      <span class="dot"></span>
+      SYMBIOTE
+    </a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="#vision">Vision</a>
+      <a href="#prototype">Prototype</a>
+      <a href="#laboratoire">Laboratoire</a>
+      <a href="#simulator">Simulateur</a>
+      <a href="#manifeste">Manifeste</a>
+      <a href="https://github.com/lvs0/symbiote" class="cta">GitHub ↗</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-content">
+      <span class="kicker">prototype v0.1 · 12 juin 2026</span>
+      <h1>
+        L'ordinateur ne transporte plus la donnée.<br/>
+        Il <em>la pense</em>.
+      </h1>
+      <p class="lede">
+        Quatre prototypes matériels où le silicium devient vivant, où la RAM
+        n'est plus un goulot, où chaque transistor arbitre le calcul. Bienvenue
+        dans l'<b>ère symbiotique</b>.
+      </p>
+      <div class="hero-cta">
+        <a href="#simulator" class="btn primary">Lancer la simulation →</a>
+        <a href="#prototype" class="btn ghost">Lire les 4 prototypes</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>4</b><span>architectures testées</span></div>
+        <div><b id="latency-display">2.1</b><span>ms latence min</span></div>
+        <div><b>256×</b><span>parallélisme max</span></div>
+        <div><b>∞</b><span>questions à explorer</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <canvas id="hero-canvas"></canvas>
+    </div>
+  </header>
+
+  <!-- VISION -->
+  <section id="vision" class="section">
+    <div class="container">
+      <span class="section-tag">01 · Vision</span>
+      <h2>Le postulat</h2>
+      <div class="vision-grid">
+        <p class="big-quote">
+          « On nous enseigne que chaque matériau a un potentiel fixe.
+          Nous disons : <em>non, c'est l'architecture logicielle qui libère
+          ou qui étouffe le silicium.</em> »
+        </p>
+        <div class="vision-side">
+          <p>Quatre hypothèses:</p>
+          <ol class="hypotheses">
+            <li>Le calcul peut cesser d'être rythmé par l'horloge.</li>
+            <li>La donnée peut <em>résider</em> sur le substrat qui la calcule.</li>
+            <li>Chaque transistor peut déclencher son voisin sans fil.</li>
+            <li>La frontière hardware/software est un choix, pas une loi physique.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOTYPE -->
+  <section id="prototype" class="section dark">
+    <div class="container">
+      <span class="section-tag">02 · Quatre prototypes</span>
+      <h2>Quatre machines, quatre logiques</h2>
+      <div class="proto-grid">
+
+        <article class="proto-card">
+          <div class="proto-visual" data-proto="silicium"></div>
+          <h3>Plaque de silicium vivante</h3>
+          <p>
+            Une seule plaque où CPU, RAM, GPU, I/O sont soudés en maille
+            maillée. Le courant ne quitte jamais le substrat.
+          </p>
+          <dl>
+            <dt>Force</dt><dd>Densité de calcul, zéro transport RAM ↔ CPU.</dd>
+            <dt>Faiblesse</dt><dd>Refabrication complète du hardware.</dd>
+          </dl>
+          <a href="simulator/index.html?p=silicium" class="link-arrow">Simuler →</a>
+        </article>
+
+        <article class="proto-card">
+          <div class="proto-visual" data-proto="decentralise"></div>
+          <h3>Maillage décentralisé</h3>
+          <p>
+            18 nœuds autonomes en réseau maillé complet. Pas de CPU central ;
+            l'intelligence émerge par consensus local.
+          </p>
+          <dl>
+            <dt>Force</dt><dd>Tolérance aux pannes, parallélisme massif.</dd>
+            <dt>Faiblesse</dt><dd>Latence de consensus entre nœuds.</dd>
+          </dl>
+          <a href="simulator/index.html?p=decentralise" class="link-arrow">Simuler →</a>
+        </article>
+
+        <article class="proto-card">
+          <div class="proto-visual" data-proto="hbm"></div>
+          <h3>HBM verticale + TMFC</h3>
+          <p>
+            Mémoire empilée en 3D (HBM) + Thermal Magnetic Feedback Computing
+            : la mémoire calcule au lieu de stocker. TSV (Through-Silicon Vias)
+           高速 pour relier la pile.
+          </p>
+          <dl>
+            <dt>Force</dt><dd>Latence < 1 ms, TFLOPs × 5 par rapport au classique.</dd>
+            <dt>Faiblesse</dt><dd>Coût thermique, packaging complexe.</dd>
+          </dl>
+          <a href="simulator/index.html?p=hbm" class="link-arrow">Simuler →</a>
+        </article>
+
+        <article class="proto-card">
+          <div class="proto-visual" data-proto="neuromorph"></div>
+          <h3>Neurmorphique Akida-like</h3>
+          <p>
+            32 neurones-spikes en réseau 3D, chaque arête est un événement.
+            Inspiration : Loihi (Intel), Akida (BrainChip), TrueNorth (IBM).
+          </p>
+          <dl>
+            <dt>Force</dt><dd>Hyper-efficient (× 1000 vs CPU classique pour l'inférence).</dd>
+            <dt>Faiblesse</dt><dd>Algorithmes entièrement repensés.</dd>
+          </dl>
+          <a href="simulator/index.html?p=neuromorph" class="link-arrow">Simuler →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LABORATOIRE -->
+  <section id="laboratoire" class="section">
+    <div class="container">
+      <span class="section-tag">03 · Laboratoire</span>
+      <h2>Ce qui devient mesurable</h2>
+      <div class="lab-grid">
+        <div class="lab-tile">
+          <div class="lab-glyph">⊕</div>
+          <h4>Plaque</h4>
+          <p>Quand on supprime le transport, la donnée ne va plus plus vite : elle ne bouge plus du tout.</p>
+        </div>
+        <div class="lab-tile">
+          <div class="lab-glyph">⌬</div>
+          <h4>Mémoire qui calcule</h4>
+          <p>In-memory computing : faire l'opération au lieu de la transporter. Akida, Mythic, HRL.</p>
+        </div>
+        <div class="lab-tile">
+          <div class="lab-glyph">⌖</div>
+          <h4>TSV submicronique</h4>
+          <p>Les vias à travers le silicium ouvrent l'empilement 3D à la manière d'un cerveau.</p>
+        </div>
+        <div class="lab-tile">
+          <div class="lab-glyph">¶</div>
+          <h4>Event-driven</h4>
+          <p>Remplacer le cycle d'horloge par le déclenchement sur événement. Asynchrone dataflow.</p>
+        </div>
+        <div class="lab-tile">
+          <div class="lab-glyph">◊</div>
+          <h4>Maillage tolérant</h4>
+          <p>Pas de CPU central, pas de point de défaillance unique. Loi du quorum.</p>
+        </div>
+        <div class="lab-tile">
+          <div class="lab-glyph">∴</div>
+          <h4>Circuits de Spike</h4>
+          <p>Le neurone formel : intègre, déclenche, se repose. SNN 2026 = Loihi 2, Akida 2.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATEUR EMBARQUÉ -->
+  <section id="simulator" class="section dark">
+    <div class="container">
+      <span class="section-tag">04 · Simulateur</span>
+      <h2>Choisis ton ordinateur.</h2>
+      <p class="section-lede">
+        Bouge les curseurs. Regarde la latence tomber, le parallélisme monter.
+        Chaque combinaison matériel + architecture donne un profil mesurable.
+      </p>
+      <div class="simulator-frame">
+        <iframe src="simulator/index.html" loading="lazy"></iframe>
+      </div>
+      <p class="caption">
+        Le simulateur charge Three.js en WebGL. Aucun backend : tout se joue
+        dans ton GPU local. Les chiffres viennent d'un modèle physique simple,
+        ajusté sur données publiques.
+      </p>
+    </div>
+  </section>
+
+  <!-- MANIFESTE -->
+  <section id="manifeste" class="section">
+    <div class="container narrow">
+      <span class="section-tag">05 · Manifeste</span>
+      <h2>Pourquoi maintenant</h2>
+      <p>
+        À 14 ans, je n'ai pas le budget pour changer le monde. Mais je peux
+        poser les bonnes questions : <b>et si la RAM n'était plus un mur ?</b>
+        Et si on arrêtait d'enseigner que <em>tel GPU est 30 % meilleur</em>
+        et qu'on montrait plutôt que c'est l'architecture logicielle qui
+        décide ?
+      </p>
+      <p>
+        Vortex (<a href="https://github.com/lvs0/vortex">GitHub ↗</a>) est
+        déjà sur Windows, à patcher l'OS. Symbiote est la suite : explorer
+        les architectures qui n'existent pas, dans un navigateur.
+      </p>
+      <p>
+        Si je me trompe, j'aurai appris comment vraiment le silicium coule.
+        Si je ne me trompe pas — l'ère symbiotique aura commencé ici, sur un
+        Dell à 240 Go de SSD.
+      </p>
+      <p class="signature">— Lévy & Zoe, 12 juin 2026, Europe / Paris</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo"><span class="dot"></span> SYMBIOTE</span>
+        <p>L'ère symbiotique, prototype v0.1.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h5>Projet</h5>
+          <a href="https://github.com/lvs0/vortex">Vortex</a>
+          <a href="https://github.com/lvs0/symbiote">Symbiote</a>
+          <a href="#simulator">Simulateur</a>
+        </div>
+        <div>
+          <h5>Recherche</h5>
+          <a href="#laboratoire">Laboratoire</a>
+          <a href="#prototype">Prototypes</a>
+          <a href="#manifeste">Manifeste</a>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <a href="https://t.me/l_vs">Telegram</a>
+          <a href="https://github.com/lvs0">GitHub lvs0</a>
+          <a href="https://x.com/l_vs">X</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      MIT — Zoe & Lévy · 2026 — Réinventer la machine en comprenant le courant.
+    </div>
+  </footer>
+
+  <script src="hero.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Symbiote — Simulateur d'ordinateurs symbiotiques</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◉</span>
+      <span class="wordmark">SYMBIOTE</span>
+      <span class="sub">— ère symbiotique, prototype 0.1</span>
+    </div>
+    <nav class="hud">
+      <span class="hud-item"><span class="dot live">●</span> Live simulation</span>
+      <span class="hud-item" id="fps">FPS: —</span>
+      <span class="hud-item" id="nodes">Nodes: —</span>
+    </nav>
+  </header>
+
+  <main class="stage">
+    <!-- Three.js canvas container -->
+    <div id="canvas-host"></div>
+
+    <!-- Floating controls -->
+    <aside class="controls">
+      <h2>Prototype</h2>
+      <div class="proto-buttons" id="proto-buttons">
+        <button data-proto="silicium" class="active">Silicium vivant</button>
+        <button data-proto="decentralise">Maillage décentralisé</button>
+        <button data-proto="hbm">HBM verticale + TMFC</button>
+        <button data-proto="neuromorph">Neurmorphique Akida-like</button>
+      </div>
+
+      <h2>Matériel cible</h2>
+      <label class="slider-row">
+        <span>RAM (Go)</span>
+        <input type="range" id="ram" min="2" max="128" value="16" />
+        <span class="val" id="ram-val">16</span>
+      </label>
+      <label class="slider-row">
+        <span>Cœurs CPU</span>
+        <input type="range" id="cpu" min="2" max="64" value="8" />
+        <span class="val" id="cpu-val">8</span>
+      </label>
+      <label class="slider-row">
+        <span>GPU (TFLOPs)</span>
+        <input type="range" id="gpu" min="1" max="200" value="15" />
+        <span class="val" id="gpu-val">15</span>
+      </label>
+      <label class="slider-row">
+        <span>Périphériques branchés</span>
+        <input type="range" id="io" min="0" max="12" value="4" />
+        <span class="val" id="io-val">4</span>
+      </label>
+
+      <h2>Métrique</h2>
+      <div class="metrics">
+        <div><label>Latence</label><b id="m-latency">—</b><small>ms</small></div>
+        <div><label>Parallélisme</label><b id="m-parallel">—</b><small>×</small></div>
+        <div><label>TFLOPs effectif</label><b id="m-tflops">—</b></div>
+        <div><label>Efficience élec.</label><b id="m-eff">—</b><small>%</small></div>
+      </div>
+
+      <h2>Actions</h2>
+      <div class="actions">
+        <button id="btn-simulate">Lancer la simulation</button>
+        <button id="btn-pause">Pause</button>
+        <button id="btn-reset">Reset</button>
+      </div>
+    </aside>
+
+    <!-- Bottom legend -->
+    <footer class="legend">
+      <span><i class="sw ram"></i>RAM</span>
+      <span><i class="sw cpu"></i>CPU</span>
+      <span><i class="sw gpu"></i>GPU</span>
+      <span><i class="sw io"></i>I/O</span>
+      <span class="hint">Clique sur un nœud pour le mettre en évidence.</span>
+    </footer>
+  </main>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/[email protected]/build/three.module.js",
+      "three/addons/": "https://unpkg.com/[email protected]/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

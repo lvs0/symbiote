@@ -1,0 +1,258 @@
+:root {
+  --bg-0: #07080d;
+  --bg-1: #0d1018;
+  --bg-2: #141826;
+  --fg-0: #f0f3fa;
+  --fg-1: #b8c0d4;
+  --fg-2: #6f7894;
+  --accent: #00ffd2;
+  --accent-2: #ff3d8c;
+  --ram: #4dd0ff;
+  --cpu: #ffd54d;
+  --gpu: #ff5a8a;
+  --io:  #b288ff;
+  --border: rgba(255,255,255,0.07);
+  --grid: rgba(0,255,210,0.05);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  background: var(--bg-0);
+  color: var(--fg-0);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+body {
+  background:
+    radial-gradient(800px circle at 20% 10%, rgba(0,255,210,0.05), transparent 60%),
+    radial-gradient(900px circle at 80% 90%, rgba(255,61,140,0.04), transparent 60%),
+    var(--bg-0);
+}
+
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 22px;
+  z-index: 10;
+  backdrop-filter: blur(14px);
+  background: rgba(7,8,13,0.55);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex; align-items: baseline; gap: 12px;
+}
+.logo {
+  font-size: 22px; color: var(--accent);
+  text-shadow: 0 0 12px rgba(0,255,210,0.6);
+}
+.wordmark {
+  font-weight: 700; letter-spacing: 0.18em; font-size: 14px;
+}
+.sub {
+  color: var(--fg-2); font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.14em;
+}
+
+.hud {
+  display: flex; gap: 20px; align-items: center;
+  font-family: "JetBrains Mono", monospace; font-size: 11px;
+  color: var(--fg-1);
+}
+.hud-item { display: flex; gap: 6px; align-items: center; }
+.dot.live { color: var(--accent); animation: pulse 1.4s infinite; }
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.stage {
+  position: relative;
+  width: 100vw; height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: 1fr 56px;
+  grid-template-areas:
+    "canvas controls"
+    "legend controls";
+}
+
+#canvas-host {
+  grid-area: canvas;
+  position: relative;
+  cursor: grab;
+}
+#canvas-host:active { cursor: grabbing; }
+#canvas-host canvas { display: block; }
+
+.controls {
+  grid-area: controls;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  border-left: 1px solid var(--border);
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.controls h2 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--fg-2);
+  margin: 16px 0 10px;
+  font-weight: 500;
+}
+.controls h2:first-child { margin-top: 0; }
+
+.proto-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.proto-buttons button {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  color: var(--fg-1);
+  padding: 9px 10px;
+  font-family: inherit;
+  font-size: 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.proto-buttons button:hover {
+  border-color: rgba(0,255,210,0.3);
+  color: var(--fg-0);
+}
+.proto-buttons button.active {
+  background: rgba(0,255,210,0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(0,255,210,0.15);
+}
+
+.slider-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 28px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--fg-1);
+}
+.slider-row .val {
+  text-align: right;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--accent);
+  font-weight: 600;
+}
+.slider-row input[type=range] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px;
+  background: var(--bg-2);
+  border-radius: 2px;
+  outline: none;
+}
+.slider-row input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 14px; height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0,255,210,0.5);
+}
+.slider-row input[type=range]::-moz-range-thumb {
+  width: 14px; height: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.metrics > div {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.metrics label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--fg-2);
+}
+.metrics b {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.metrics small { color: var(--fg-2); font-size: 10px; }
+
+.actions {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 6px;
+}
+.actions button {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  color: var(--fg-0);
+  padding: 10px;
+  font-family: inherit;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.actions button#btn-simulate {
+  background: var(--accent);
+  color: var(--bg-0);
+  font-weight: 600;
+  border-color: var(--accent);
+}
+.actions button:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.legend {
+  grid-area: legend;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0 22px;
+  border-top: 1px solid var(--border);
+  background: rgba(7,8,13,0.6);
+  backdrop-filter: blur(8px);
+  font-size: 11px;
+  color: var(--fg-1);
+}
+.legend .hint { color: var(--fg-2); margin-left: auto; font-style: italic; }
+.sw {
+  display: inline-block;
+  width: 10px; height: 10px; border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.sw.ram { background: var(--ram); box-shadow: 0 0 8px var(--ram); }
+.sw.cpu { background: var(--cpu); box-shadow: 0 0 8px var(--cpu); }
+.sw.gpu { background: var(--gpu); box-shadow: 0 0 8px var(--gpu); }
+.sw.io  { background: var(--io);  box-shadow: 0 0 8px var(--io); }
+
+/* Mini animations */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}

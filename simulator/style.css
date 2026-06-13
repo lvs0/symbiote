@@ -251,6 +251,28 @@ body {
 .sw.gpu { background: var(--gpu); box-shadow: 0 0 8px var(--gpu); }
 .sw.io  { background: var(--io);  box-shadow: 0 0 8px var(--io); }
 
+/* Panneau de référence physique — métadonnées réelles par prototype */
+.metrics.physical {
+  grid-column: 1 / -1;
+  background: rgba(0,255,210,0.04);
+  border: 1px solid rgba(0,255,210,0.15);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: var(--fg-1);
+  line-height: 1.6;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+.metrics.physical .note {
+  color: var(--accent);
+  opacity: 0.75;
+  font-size: 10px;
+  display: block;
+  margin-top: 2px;
+}
+
 /* Mini animations */
 @keyframes float {
   0%,100% { transform: translateY(0); }

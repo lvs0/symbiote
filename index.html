@@ -11,37 +11,37 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Symbiote" />
-  <meta property="og:title" content="Symbiote — Simulateur 3D de l'ère simbiotique" />
-  <meta property="og:description" content="4 prototypes de l'ère simbiotique en WebGL : silicium vivant, maillage décentralisé, HBM+TMFC, neuromorphique. Bouge les curseurs matériel et regarde la latence tomber." />
+  <meta property="og:title" content="Symbiote — Simulateur 3D de l'ère symbiotique" />
+  <meta property="og:description" content="4 prototypes de l'ère symbiotique en WebGL : silicium vivant, maillage décentralisé, HBM+TMFC, neuromorphique. Bouge les curseurs matériel et regarde la latence tomber." />
   <meta property="og:url" content="https://lvs0.github.io/symbiote/" />
   <meta property="og:image" content="https://lvs0.github.io/symbiote/og-image.png" />
   <meta property="og:locale" content="fr_FR" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Symbiote — Simulateur 3D de l'ère simbiotique" />
-  <meta name="twitter:description" content="4 prototypes matériels de l'ère simbiotique en WebGL." />
+  <meta name="twitter:title" content="Symbiote — Simulateur 3D de l'ère symbiotique" />
+  <meta name="twitter:description" content="4 prototypes matériels de l'ère symbiotique en WebGL." />
   <meta name="twitter:image" content="https://lvs0.github.io/symbiote/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="canonical" href="https://lvs0.github.io/symbiote/" />
 
-  <title>Symbiote — Simulateur 3D de l'ère simbiotique</title>
-  <link rel="preconnect"
+  <title>Symbiote — Simulateur 3D de l'ère symbiotique</title>
+
   <!-- Three.js -->
   <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.165.0/build/three.module.js" }}</script>
   <!-- NYX tokens (identité écosystème) -->
   <link rel="stylesheet" href="https://lvs0.github.io/nyx/brand/tokens.css" />
   <!-- NYX injecté : header écosystème -->
-  <link rel="stylesheet" href="nyx-header.css?v=b16bcfac" />
-  <script defer src="nyx-header.js?v=d3ba9c9d"></script>
+  <link rel="stylesheet" href="nyx-header.css" />
+  <script defer src="nyx-header.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body data-product="Symbiote">
-    <header class="topbar" role="banner">
-    <h1 class="sr-only">Symbiote — Simulateur 3D de l'ère simbiotique</h1>
-    <div class="brand">
+  <header class="topbar" role="banner">
+    <h1 class="sr-only">Symbiote — Simulateur 3D de l'ère symbiotique</h1>
     <div class="brand">
       <span class="logo">◉</span>
       <span class="wordmark">SYMBIOTE</span>
@@ -65,7 +65,7 @@
         <button data-proto="silicium" class="active">Silicium vivant</button>
         <button data-proto="decentralise">Maillage décentralisé</button>
         <button data-proto="hbm">HBM verticale + TMFC</button>
-        <button data-proto="neuromorph">Neurmorphique Akida-like</button>
+        <button data-proto="neuromorph">Neuromorphique Akida-like</button>
       </div>
 
       <h2>Matériel cible</h2>
@@ -119,11 +119,11 @@
   <script type="importmap">
   {
     "imports": {
-      "three": "https://unpkg.com/[email protected]/build/three.module.js",
-      "three/addons/": "https://unpkg.com/[email protected]/examples/jsm/"
+      "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
     }
   }
   </script>
-  <script type="module" src="main.js?v=0f0006b0"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>

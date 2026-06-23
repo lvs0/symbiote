@@ -1,0 +1,14 @@
+# Build outputs
+target/
+dist/
+*.exe
+*.pdb
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Local MCP server cache (Serena)
+.serena/
